@@ -27,6 +27,9 @@ public class Student {
         return grades;
     }
 
+    public void setGrades(ArrayList<Integer> grades) {
+        this.grades = grades;
+    }
 
     public void addGrade(int grade){
         this.grades.add(grade);
@@ -34,9 +37,23 @@ public class Student {
 
     public double getGradeAverage(){
     double total = 0;
-        for (int grade : this.getGrades()){
+        for (double grade : grades){
             total += grade;
         }
-        return total/(this.getGrades().size());
+        return total/grades.size();
     }
+
+    public void deleteGrade(int index) {
+        this.grades.remove(index);
+    }
+
+    public void updateGrade(int index, int newGrade ) {
+//        Integer grade = grades.get(index);
+//        if(grade != null) {
+//            grades.set(grade, newGrade);
+//        }
+//        int grade = grades.indexOf(index);
+        grades.set(index, newGrade);
+    }
+
 }

@@ -3,8 +3,7 @@ package students;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class StudentTest {
     Student Roger;
@@ -28,15 +27,36 @@ public class StudentTest {
 
    @Test
     public void AddGradeWorksIf() {
-       assertSame(98, Roger.getGrades().get(1));
+       assertSame(98, Roger.grades.get(1));
        Spiderman.addGrade(100);
-       assertTrue(Spiderman.getGrades().contains(100));
+       assertTrue(Spiderman.grades.contains(100));
 
    }
 
    @Test
     public void getGradeAverageWorksIf () {
-
+       double expected = 89.1;
+       double actual = 89.0000001;
+       assertEquals(expected, actual, .1);
+        assertEquals(35, Midlyn.getGradeAverage(), 0 );
+        assertEquals(99, Roger.getGradeAverage(), 0 );
    }
+
+   @Test
+    public void TestDeleteGrade() {
+       Roger.deleteGrade(2);
+        assertEquals(2, Roger.grades.size());
+        assertFalse(Roger.grades.contains(99));
+   }
+
+   @Test
+    public void TestUpdateGrade() {
+       Midlyn.updateGrade(0, 95);
+
+       assertTrue(Midlyn.grades.contains(95));
+   }
+
+
+
 
 }
