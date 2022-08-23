@@ -18,6 +18,7 @@ public class CohortTest {
         Student wolverine = new Student(2, "Wolverine");
         Student ash = new Student(3, "Ash");
 
+        batman.addGrade(100);
         wolverine.addGrade(95);
         wolverine.addGrade(98);
         ash.addGrade(70);
@@ -42,7 +43,8 @@ public class CohortTest {
 
         @Test
         public void TestCohortAverage() {
-        assertEquals(75, twoStudents.getCohortAverage(), 0);
+        assertEquals(75, oneStudent.getCohortAverage(), 0);
+//        assertEquals(83.3, twoStudents.getCohortAverage(), 0.5);
         }
 
 
